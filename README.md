@@ -6,3 +6,5 @@ To jest moja linijka na potrzeby testu, czy repozytorium działa
 Dodaj jakąś swiją linijke
 
 xD
+
+ja sobie coś piszę jescze
