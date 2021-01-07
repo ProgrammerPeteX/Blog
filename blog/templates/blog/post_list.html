@@ -7,10 +7,17 @@
     {
         background-color: #F19898;
         width: 600px;
-        border: 1px solid green
+        border: 1px solid green;
     }
 
-    #div_2
+    #div_2 
+    {
+        background-color: #B15999;
+        width: 600px;
+        border: 1px solid blue;
+    }
+
+    #div_3
     {
         background-color: #AAE497;
         width: 600px;
@@ -28,7 +35,16 @@
         <p>Hi there!</p>
         <p>It works!</p>
     </div>
-    <div id="div_2">
+
+    {% for post in posts %}
+        <div id="div_2">
+            <p>published: {{post.published_date}}</p>
+            <h2><a href="">{{post.title}}</a></h2>
+            <p>{{post.text|linebreaksbr}}</p>    
+        </div>
+    {% endfor %}
+
+    <div id="div_3">
         <h2><a href="/">Second Post</a></h2>
         <p> 
             This is my body of text <br>
