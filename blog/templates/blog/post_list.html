@@ -1,56 +1,36 @@
+{% load static %}
 <html>
 <head>
     <title>Peter's blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
-<style>
-    #div_1
-    {
-        background-color: #F19898;
-        width: 600px;
-        border: 1px solid green;
-    }
 
-    #div_2 
-    {
-        background-color: #B15999;
-        width: 600px;
-        border: 1px solid blue;
-    }
-
-    #div_3
-    {
-        background-color: #AAE497;
-        width: 600px;
-        border: 1px solid red;
-    }
-</style>
-<h1> 
-    Peter's Blog
-</h1>
+<div class="page-header">
+    <h1><a href=""> Peter's Blog<b href=""></h1>
+</div>
 
 
 <body>
-    <div id="div_1">
-        <h2><a href="/">First Post</a></h2>
-        <p>Hi there!</p>
-        <p>It works!</p>
-    </div>
-
-    {% for post in posts %}
-        <div id="div_2">
-            <p>published: {{post.published_date}}</p>
-            <h2><a href="">{{post.title}}</a></h2>
-            <p>{{post.text|linebreaksbr}}</p>    
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% for post in posts %}
+                    <div class="post">
+                        <p>published: {{post.published_date}}</p>
+                        <h2><a href="">{{post.title}}</a></h2>
+                        <p>{{post.text|linebreaksbr}}</p>    
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    {% endfor %}
-
-    <div id="div_3">
-        <h2><a href="/">Second Post</a></h2>
-        <p> 
-            This is my body of text <br>
-            <em> emphasised text? I guess it's italics </em> <br>
-            <strong> strongly emphasied text? okay, and this is bold </strong>
-        </p>
     </div>
 </body>
 </html>
