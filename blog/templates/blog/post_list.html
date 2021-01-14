@@ -1,10 +1,17 @@
 
-{% extends 'c:/repos/peter-kurs/blog/base.html' %}
-    {%for post in posts%}
-        <div class="post">
-            <p><published>published: {{post.published_date}}</published></p>
-            <h2><a href="">{{post.title}}</a></h2>
-            <p><text>{{post.text|linebreaksbr}}</text></p>    
+{% extends 'blog\base.html' %}
+    {% block content %}    
+        {%for post in posts%}
+            <div class="post">
+                <p><published>published: {{post.published_date}}</published></p>
+                <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+                <p><text>{{post.text|linebreaksbr}}</text></p>    
+            </div>
+        {%endfor%}
+
+        <div class="back">
+            <h2><b href="{% url 'odd_page' %}">odd page</b></h2>
+            <h2><a href="{% url 'odd_page' %}">why not working?</a></h2>
         </div>
-    {%endfor%}
-{% endblock %}
+    {% endblock %}
+
